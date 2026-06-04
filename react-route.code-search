@@ -1,0 +1,59 @@
+# Query: react-route
+# ContextLines: 1
+
+12 resultados - Archivos de 12
+
+package.json:
+  57      "react-responsive-masonry": "2.7.1",
+  58:     "react-router-dom": "7.13.0",
+  59      "react-slick": "0.31.0",
+
+src\app\App.tsx:
+  1: import { RouterProvider } from "react-router-dom";
+  2  import { AuthProvider } from "./context/AuthContext";
+
+src\app\routes.tsx:
+  1: import { createBrowserRouter, Navigate } from 'react-router-dom';
+  2  import Layout from './components/Layout';
+
+src\app\components\Clients.tsx:
+  1  import { useAuth } from '../context/AuthContext';
+  2: import { useNavigate } from 'react-router-dom';
+  3  import { Mail, Phone, UserX, UserCheck } from 'lucide-react';
+
+src\app\components\ForgotPassword.tsx:
+  1  import { useState } from 'react';
+  2: import { Link } from 'react-router-dom';
+  3  import { Mail, Send, CheckCircle, ArrowLeft } from 'lucide-react';
+
+src\app\components\LandingPage.tsx:
+  1: import { useNavigate } from 'react-router-dom';
+  2  import { CheckCircle, Shield, Clock, Users, Wrench, FileCheck, Phone, Mail, MapPin } from 'lucide-react';
+
+src\app\components\Layout.tsx:
+  1: import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+  2  import { useAuth } from '../context/AuthContext';
+
+src\app\components\Login.tsx:
+  1  import { useState } from 'react';
+  2: import { useNavigate, Link } from 'react-router-dom';
+  3  import { useAuth } from '../context/AuthContext';
+
+src\app\components\NotFound.tsx:
+  1: import { useNavigate } from 'react-router-dom';
+  2  import { Home, AlertTriangle } from 'lucide-react';
+
+src\app\components\Profile.tsx:
+  2  import { useAuth } from '../context/AuthContext';
+  3: import { useNavigate } from 'react-router-dom';
+  4  import { User, Mail, Phone, Shield, Save, AlertTriangle, FileText } from 'lucide-react';
+
+src\app\components\ProtectedRoute.tsx:
+  1  import { ReactNode, useEffect } from 'react';
+  2: import { useNavigate } from 'react-router-dom';
+  3  import { useAuth } from '../context/AuthContext';
+
+src\app\components\Register.tsx:
+  1  import { useState } from 'react';
+  2: import { useNavigate, Link } from 'react-router-dom';
+  3  import { useAuth } from '../context/AuthContext';

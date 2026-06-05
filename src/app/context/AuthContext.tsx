@@ -74,7 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!token) return;
 
     try {
-      const usersData: BackendUser[] = await apiFetch("/auth/users");
+      const usersData: BackendUser[] = await apiFetch("/users/get-all");
       setUsers(usersData.map(formatBackendUser));
     } catch (error) {
       console.error("Error cargando usuarios:", error);
@@ -203,7 +203,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw new Error("Usuario no encontrado");
     }
 
-    await apiFetch("/auth/role-assignment", {
+    await apiFetch("/users/role-assignment", {
       method: "PUT",
       body: JSON.stringify({
         email: selectedUser.email,

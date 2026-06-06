@@ -220,7 +220,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const toggleUserStatus = (userId: string) => {
+  const toggleUserStatus = async (
+    userId: string
+  ) => {
+    const selectedUser = users.find((u) => u.id === userId);
+
+    if (!selectedUser) {
+      throw new Error("Usuario no encontrado");
+    }
+
+    await apiFetch("/users/update-user-status", {
+      method: "PUT",
+      body: JSON.stringify({
+        email: selectedUser.email,
+      }),
+    });
+
     setUsers((prev) =>
       prev.map((u) =>
         u.id === userId
@@ -228,6 +243,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           : u
       )
     );
+
+    if (user?.id === userId) {
+      setUser({ ...user, });
+    }
   };
 
   const deleteUser = (userId: string) => {

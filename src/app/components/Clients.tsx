@@ -53,9 +53,14 @@ export default function Clients() {
     return u.id !== user.id && cuitUser.includes(cuitSearch);
   });
 
-  const handleToggleStatus = (userId: string) => {
-    toggleUserStatus(userId);
-    toast.success("Estado del cliente actualizado");
+  const handleToggleStatus = async (userId: string) => {
+
+    try {
+      await toggleUserStatus(userId);
+      toast.success("Estado del cliente actualizado");
+    } catch {
+      toast.error("No se pudo actualizar el estado");
+    }    
   };
 
   const handleRoleChange = async (
